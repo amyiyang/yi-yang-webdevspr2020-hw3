@@ -4,15 +4,6 @@ import deleteToReadBooks from "./deleteToReadReducer";
 import addHaveReadBooks from "./addHaveReadReducer";
 import deleteHaveReadBooks from "./deleteHaveReadReducer";
 
-function selectedFood(state = '', action) {
-    switch (action.type) {
-        case "SELECT_FOOD":
-            return action.foodId
-        default:
-            return state
-    }
-}
-
 function fetchSearchBookList(
     state = {
         inFlight: false,
@@ -79,6 +70,28 @@ function fetchHaveReadBookList(
     }
 }
 
+function updateBookRatings(
+    state ={
+        inFlight: false,
+        ratings: null
+    },
+    action
+) {
+    switch (action.type) {
+        case "REQUEST_UPDATE":
+            return Object.assign({}, state, {
+                inFlight: true
+            });
+        case "RECEIVE_UPDATE":
+            return Object.assign({}, state, {
+                inFlight: false,
+                list: action.bookList,
+            });
+        default:
+            return state
+    }
+}
+
 
 
 
@@ -89,7 +102,8 @@ const rootReducer = combineReducers({
     toReadBookList: fetchToReadBookList,
     deleteHaveReadBooks,
     addHaveReadBooks,
-    haveReadBookList: fetchHaveReadBookList
+    haveReadBookList: fetchHaveReadBookList,
+    bookRatings: updateBookRatings,
 });
 
 export default rootReducer

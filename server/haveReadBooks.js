@@ -3,8 +3,8 @@ const router = express.Router();
 const uuidv4 = require('uuid/v4');
 
 
-const haveReadList = [{id: "10", title: '2', authors: ['3']},
-    {id: "4", title: 'T5', authors: ['6']}]
+const haveReadList = [{id: "10", title: '2', authors: ['3'], ratings: 2},
+    {id: "4", title: 'T5', authors: ['6'], ratings: 3}]
 
 router.get('/', function (req, res) {
     res.send(haveReadList);
@@ -30,5 +30,18 @@ router.delete('/:id', function (req, res) {
     }
     res.status(200).send('Success!');
 });
+
+router.put('/update/:id', function (req, res) {
+    const bookId = req.params.id;
+    const body = req.body;
+    const found = haveReadList.find((book) => book.id === bookId);
+    if (!found) {
+        res.status(404);
+        return res.send({error: 'not found!'});
+    }
+    found.ratings = body.ratings;
+    res.status(200).send('Success!');
+});
+
 
 module.exports = router;

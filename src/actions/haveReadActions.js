@@ -97,3 +97,33 @@ export function moveToRead(book) {
         )
     }
 }
+
+function requestUpdate() {
+    return {
+        type: "REQUEST_UPDATE"
+    }
+}
+
+function receiveUpdateSuccess(foodId) {
+    return {
+        type: "RECEIVE_UPDATE",
+
+    }
+}
+
+
+
+export function updateRatings(id, newRatings) {
+    const bookNewRating = {
+        ratings: newRatings
+    }
+    return function(dispatch) {
+        dispatch(requestUpdate());
+        return Axios.put(`/api/haveReadBook/update/${id}`,{bookNewRating})
+            .then(
+                () => dispatch(receiveUpdateSuccess())
+            ).then(
+                () => dispatch(fetchHaveReadList())
+            )
+    }
+}
