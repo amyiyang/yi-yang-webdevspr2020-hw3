@@ -33,6 +33,16 @@ class HaveReadList extends React.Component {
         );
     }
 
+    findRating(id) {
+        let r = '';
+        for (var i = 0; i < this.props.haveReadList; i++) {
+            if (this.props.haveReadList[i].id === id) {
+                r = this.props.haveReadList[i].ratings + '';
+            }
+        }
+        return r;
+    }
+
     _renderHaveReadList() {
 
         if (!this.props.haveReadList || this.props.haveReadList.length === 0) {
@@ -42,15 +52,18 @@ class HaveReadList extends React.Component {
         const bookRows = this.props.haveReadList.map(book => (
             <tr key={book.id}>
                 <td>{book.title}</td>
-                <td>{book.authors}</td>
+                <td>{book.authors.toString()}</td>
+                <td>{String(book.ratings)}</td>
                 <td>
                     <select value={book.ratings} onChange={e => this.props.handleUpdateRating(book.id, e.target.value)}>
+                        <option value={book.ratings} selected>{book.ratings}</option>
                         <option value="1">1</option>
+                        <option value="2">2</option>
                         <option value="3">3</option>
+                        <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
                 </td>
-                {/*<td><button onClick={() => this.props.handleUpdateRating(book)}>Update Rating</button></td>*/}
                 <td><button onClick={() => this.props.handleDeleteHaveRead(book.id)}>Delete</button></td>
                 <td><button onClick={() => this.props.handleMoveToRead(book)}>Move to To-Read</button></td>
             </tr>));
@@ -59,6 +72,7 @@ class HaveReadList extends React.Component {
             <tr>
                 <th>Title</th>
                 <th>Authors</th>
+                <th>rating</th>
                 <th>Ratings</th>
             </tr>
             </thead>
@@ -67,17 +81,6 @@ class HaveReadList extends React.Component {
             </tbody>
         </table>)
     }
-
-    // _selectRatings(book) {
-    //     console.dir(book);
-    //
-    //     const selectRatings;
-    //     return selectRatings;
-    //
-    //
-    // }
-
-
 }
 
 

@@ -111,8 +111,6 @@ function receiveUpdateSuccess(foodId) {
     }
 }
 
-
-
 export function updateRatings(id, newRatings) {
     const bookNewRating = {
         ratings: newRatings

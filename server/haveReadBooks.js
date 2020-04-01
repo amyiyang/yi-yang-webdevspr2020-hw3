@@ -40,7 +40,7 @@ router.put('/update/:id', function (req, res) {
         return res.send({error: 'not found!'});
     }
     found.ratings = body.ratings;
-    res.status(200).send('Success!');
+    res.status(200).send(found);
 });
 
 
