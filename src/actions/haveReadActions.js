@@ -113,11 +113,12 @@ function receiveUpdateSuccess(foodId) {
 
 export function updateRatings(id, newRatings) {
     const bookNewRating = {
-        ratings: newRatings
+        ratings: parseInt(newRatings)
     }
     return function(dispatch) {
         dispatch(requestUpdate());
-        return Axios.put(`/api/haveReadBook/update/${id}`,{bookNewRating})
+        // ${id}`
+        return Axios.put(`/api/haveReadBook/update/${id}`,bookNewRating)
             .then(
                 () => dispatch(receiveUpdateSuccess())
             ).then(
