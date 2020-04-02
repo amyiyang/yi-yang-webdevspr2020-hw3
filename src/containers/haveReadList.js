@@ -83,12 +83,12 @@ class HaveReadList extends React.Component {
         const bookRows = this.props.haveReadList.map(book => (
             <tr key={book.id}>
                 <td className="align-middle">{book.title}</td>
-                <td className="align-middle">{book.authors.toString()}</td>
+                <td className="align-middle">{(book.authors === undefined)? 'Unknown': book.authors.toString()}</td>
                 <td>
                     <Form>
                         <Form.Group controlId="exampleForm.SelectCustom">
-                            <Form.Control as="select" size="sm" value={book.ratings} onChange={e => this.props.handleUpdateRating(book.id, e.target.value)} options={options}>
-                                {/*<option value={book.ratings} selected>{book.ratings}</option>*/}
+                            <Form.Control as="select" size="sm" value={book.hasOwnProperty('ratings')? book.ratings: '-' } onChange={e => this.props.handleUpdateRating(book.id, e.target.value)} options={options}>
+                                <option value="-">-</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

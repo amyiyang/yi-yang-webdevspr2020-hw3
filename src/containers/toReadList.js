@@ -34,7 +34,7 @@ class ToReadList extends React.Component {
         const bookRows = this.props.toReadList.map(book => (
             <tr key={book.id}>
                 <td className="align-middle">{book.title}</td>
-                <td className="align-middle">{book.authors}</td>
+                <td className="align-middle">{(book.authors === undefined)? 'Unknown': book.authors.toString()}</td>
                 <td className="buttonCol"><Button size="sm" variant="outline-danger" onClick={() => this.props.handleDeleteToRead(book.id)}>Delete</Button></td>
                 <td className="buttonCol"><Button size="sm" variant="outline-info" onClick={() => this.props.handleMoveHaveRead(book)}>Move to Have-Read</Button></td>
             </tr>));

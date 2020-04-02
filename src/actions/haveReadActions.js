@@ -113,7 +113,7 @@ function receiveUpdateSuccess(foodId) {
 
 export function updateRatings(id, newRatings) {
     const bookNewRating = {
-        ratings: parseInt(newRatings)
+        ratings: newRatings
     }
     return function(dispatch) {
         dispatch(requestUpdate());

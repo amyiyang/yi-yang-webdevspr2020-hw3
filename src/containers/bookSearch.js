@@ -100,7 +100,7 @@ class BookSearch extends React.Component {
         const bookRows = this.props.bookList.map(book => (
             <tr key={book.id}>
                 <td>{book.volumeInfo.title}</td>
-                <td>{book.volumeInfo.authors.toString()}</td>
+                <td>{ (book.volumeInfo.authors === undefined)? 'Unknown': book.volumeInfo.authors.toString()}</td>
                 <td class="buttonCol"><Button size="sm" variant="link" disabled={this.props.bookListInFlight || this._isInToReadList(book.id)} onClick={() => this.props.handleAddBookToRead(book)}>Add</Button></td>
                 <td class="buttonCol"><Button size="sm" variant="link" disabled={this.props.bookListInFlight || this._isInHaveReadList(book.id)} onClick={() => this.props.handleAddBookHaveRead(book)}>Add</Button></td>
             </tr>));

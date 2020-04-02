@@ -13,7 +13,7 @@ const haveReadList = [
         "authors": [
             "John Sandford"
         ],
-        "ratings": 3
+        "ratings": '3'
     },
     {
         "id": "dD9_uTXl7roC",
@@ -21,7 +21,7 @@ const haveReadList = [
         "authors": [
             "Vanessa Diffenbaugh"
         ],
-        "ratings": 4
+        "ratings": '4'
     },
     {
         "id": "FmmtDwAAQBAJ",
@@ -29,7 +29,7 @@ const haveReadList = [
         "authors": [
             "Bettina Elias Siegel"
         ],
-        "ratings": 5
+        "ratings": '5'
     }
 ];
 
