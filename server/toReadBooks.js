@@ -2,9 +2,37 @@ const express = require('express');
 const router = express.Router();
 const uuidv4 = require('uuid/v4');
 
-const toReadList = [{id: "gdEBDAAAQBAJ",title: 'Storm Front', authors: ['John Sandford']},
-    {id: "dD9_uTXl7roC", title: 'The Language of Flowers', authors: ['Vanessa Diffenbaugh']},
-    {id: "1",title: 'Storm 1', authors: ['John 1']}]
+const toReadList = [
+    {
+        "id": "6pImDwAAQBAJ",
+        "title": "Food",
+        "authors": [
+            "Mark Hyman"
+        ]
+    },
+    {
+        "id": "utugT5lFRQoC",
+        "title": "In Defence of Food",
+        "authors": [
+            "Michael Pollan"
+        ]
+    },
+    {
+        "id": "It6ySlOx8b8C",
+        "title": "Jane Brody's Good Food Book",
+        "authors": [
+            "Jane E. Brody"
+        ]
+    },
+    {
+        "id": "BEYOAAAACAAJ",
+        "title": "Dr. Gabe Mirkin's Good Food Book: Live Better and Longer with Nature's Best Foods",
+        "authors": [
+            "Gabe Mirkin",
+            "Diana Mirkin"
+        ]
+    }
+]
 
 router.get('/', function (req, res) {
     res.send(toReadList);
