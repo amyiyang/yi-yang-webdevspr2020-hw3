@@ -1,8 +1,12 @@
 import React from "react";
+import { MDBContainer } from 'mdbreact';
 import {connect} from 'react-redux';
 import {fetchToReadList} from "../actions/featchBookListActions";
 import {deleteToRead} from "../actions/toReadActions";
 import {moveHaveRead} from "../actions/toReadActions";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+
 
 class ToReadList extends React.Component {
 
@@ -13,8 +17,9 @@ class ToReadList extends React.Component {
     render() {
 
         return (
-            <div>
-                <h1> To Read List </h1>
+
+            <div id = "haveReadList">
+                <br/>
                 <div> {this._renderToReadList()}</div>
             </div>
         );
@@ -28,22 +33,26 @@ class ToReadList extends React.Component {
 
         const bookRows = this.props.toReadList.map(book => (
             <tr key={book.id}>
-                <td>{book.title}</td>
-                <td>{book.authors}</td>
-                <td><button onClick={() => this.props.handleDeleteToRead(book.id)}>Delete</button></td>
-                <td><button onClick={() => this.props.handleMoveHaveRead(book)}>Move to Have-Read</button></td>
+                <td className="align-middle">{book.title}</td>
+                <td className="align-middle">{book.authors}</td>
+                <td className="buttonCol"><Button size="sm" variant="outline-danger" onClick={() => this.props.handleDeleteToRead(book.id)}>Delete</Button></td>
+                <td className="buttonCol"><Button size="sm" variant="outline-info" onClick={() => this.props.handleMoveHaveRead(book)}>Move to Have-Read</Button></td>
             </tr>));
-        return (<table>
+        return (
+            <MDBContainer>
+            <Table size="sm">
             <thead>
             <tr>
                 <th>Title</th>
                 <th>Authors</th>
+                <th>Delete</th>
+                <th>Move</th>
             </tr>
             </thead>
             <tbody>
             {bookRows}
             </tbody>
-        </table>)
+        </Table></MDBContainer>)
     }
 
 }

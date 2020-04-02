@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers/reducers";
 import thunkMiddleware from 'redux-thunk';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     BrowserRouter, Switch,
     Route, Redirect

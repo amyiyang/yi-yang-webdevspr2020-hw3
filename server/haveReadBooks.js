@@ -3,8 +3,35 @@ const router = express.Router();
 const uuidv4 = require('uuid/v4');
 
 
-const haveReadList = [{id: "10", title: '2', authors: ['3'], ratings: 2},
-    {id: "4", title: 'T5', authors: ['6'], ratings: 3}]
+// const haveReadList = [{id: "10", title: '2', authors: ['3'], ratings: 2},
+//     {id: "4", title: 'T5', authors: ['6'], ratings: 3}]
+
+const haveReadList = [
+    {
+        "id": "gdEBDAAAQBAJ",
+        "title": "Storm Front",
+        "authors": [
+            "John Sandford"
+        ],
+        "ratings": 3
+    },
+    {
+        "id": "dD9_uTXl7roC",
+        "title": "The Language of Flowers",
+        "authors": [
+            "Vanessa Diffenbaugh"
+        ],
+        "ratings": 4
+    },
+    {
+        "id": "FmmtDwAAQBAJ",
+        "title": "Kid Food",
+        "authors": [
+            "Bettina Elias Siegel"
+        ],
+        "ratings": 5
+    }
+];
 
 router.get('/', function (req, res) {
     res.send(haveReadList);
