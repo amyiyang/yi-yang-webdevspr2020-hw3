@@ -1,0 +1,39 @@
+
+label {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+Row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#search {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    list-style: none;
+    margin-top: 50px;
+}
+
+#bookList {
+    text-align: left;
+    vertical-align: bottom;
+}
+
+Table {
+    font-size: 10pt;
+    text-align: left;
+}
+
+.buttonCol {
+    text-align: center;
+}
+
+thead {
+    text-align: center;
+}
