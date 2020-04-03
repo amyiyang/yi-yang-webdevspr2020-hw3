@@ -19,7 +19,6 @@ function receiveSearchError() {
     }
 }
 
-//todo: add environment api keY
 export function searchForBooks(keyWord) {
     let url = '';
     url = process.env.REACT_APP_GOOGLE_BOOKS_KEY_PRE.concat(keyWord, process.env.REACT_APP_GOOGLE_BOOKS_KEY_POST);
@@ -85,7 +84,7 @@ function receiveHaveReadError() {
 export function fetchHaveReadList() {
     return function(dispatch) {
         dispatch(requestHaveReadList());
-        return Axios.get(`/haveReadBook`)
+        return Axios.get(`/api/haveReadBook`)
             .then(response => dispatch(receiveHaveReadSuccess(response.data)),
                 error => console.log('An error occurred.', error)
             )
