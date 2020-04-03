@@ -2,7 +2,7 @@
   "name": "fullstack-development",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "https://yi-yilin-a3-webdevspr20.herokuapp.com",
   "engines": {
     "node": "8.9.x"
   },
