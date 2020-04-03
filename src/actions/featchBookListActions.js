@@ -21,9 +21,12 @@ function receiveSearchError() {
 
 //todo: add environment api keY
 export function searchForBooks(keyWord) {
+    let url = '';
+    url = process.env.REACT_APP_GOOGLE_BOOKS_KEY_PRE.concat(keyWord, process.env.REACT_APP_GOOGLE_BOOKS_KEY_POST);
     return function(dispatch) {
         dispatch(requestSearchList());
-        return Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keyWord}&key=AIzaSyAXV1VDgjNn9ZWDpuYxJUxDUxpqb8iNAOU`)
+        return Axios.get(url)
+        // return Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keyWord}&key=AIzaSyAXV1VDgjNn9ZWDpuYxJUxDUxpqb8iNAOU`)
             .then(
                 response => dispatch(receiveSearchSuccess(response.data.items)),
                 receiveSearchError)
