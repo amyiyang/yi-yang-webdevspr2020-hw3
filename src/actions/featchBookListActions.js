@@ -85,7 +85,7 @@ function receiveHaveReadError() {
 export function fetchHaveReadList() {
     return function(dispatch) {
         dispatch(requestHaveReadList());
-        return Axios.get(`/api/haveReadBook`)
+        return Axios.get(`/haveReadBook`)
             .then(response => dispatch(receiveHaveReadSuccess(response.data)),
                 error => console.log('An error occurred.', error)
             )
