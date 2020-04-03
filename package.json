@@ -5,7 +5,7 @@
   "engines": {
     "node": "8.9.x"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://yi-yilin-a3-webdevspr20.herokuapp.com",
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
